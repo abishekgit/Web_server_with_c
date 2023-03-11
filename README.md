@@ -1,0 +1,1 @@
+Web server: Create a web server in C that can handle HTTP requests and serve static and dynamic content. The server should include features such as multi-threading, request handling, and error handling.
