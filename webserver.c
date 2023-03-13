@@ -33,5 +33,17 @@ int main() {
 	}
 	printf("server listening for connections\n");
 
+	// A continuous loop for keep accepting new conections
+	while (1) {
+		// Accept incoming connections
+		int newSockfd = accept(sockfd, (struct sockaddr *)&host_addr, (socklen_t *)&host_addrlen);
+		if (newsockfd < 0) {
+			perror("webserver (accept)");
+			continue;
+		}
+		printf("connection accepted\n");
+		close(newsockfd);
+	}
+
 	return 0;
 }
