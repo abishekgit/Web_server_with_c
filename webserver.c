@@ -1,6 +1,6 @@
 #include <arpa/inet.h>
-#include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -8,9 +8,13 @@
 #define PORT 8080
 #define BUFFER_SIZE 1024
 
-void serve_static_content(int client_socket, char *uri);
+void serve_static_content(int client_socket, char *uri){
+  // TODO: Implement the function to serve static content
+}
 
-void serve_dynamic_content(int client_socket, char *uri);
+void serve_dynamic_content(int client_socket, char *uri){
+  // TODO: Implement the function to serve dynamic content
+}
 
 void serve_request(int client_socket) {
   char buffer[BUFFER_SIZE];
@@ -42,7 +46,7 @@ void serve_request(int client_socket) {
               "HTTP/1.0 404 Not Found\r\nServer: webserver-c\r\n\r\n");
       if (write(client_socket, response, strlen(response)) < 0) {
         perror("Socket write failed");
-      };
+      }
       close(client_socket);
       return;
     }
@@ -102,7 +106,7 @@ int main() {
     if (sockfd == -1) {
       //editing belowe line to help with 
     perror("Socket creation failed");
-    exit(EXIT_FAILURE)
+    exit(EXIT_FAILURE);
     }
     printf("socket created successfully\n");
 
